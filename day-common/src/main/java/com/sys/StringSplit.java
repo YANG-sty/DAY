@@ -37,51 +37,29 @@ public class StringSplit {
         String s = split[1];
         System.out.println(s);
 
+        String[] split1 = a.split("yang.");
+        for (String s1 : split1) {
+            System.out.println("yang    ：  "+s1);
+
+        }
+
+        /**
+         * 反射的方式进行方法的执行
+         */
         String s1 = "com.sys.StringSplit";
         Class<?> aClass = Class.forName(s1);
         Object o = aClass.newInstance();
-        Method first = aClass.getMethod("secend");
-        Object invoke = first.invoke(o);
+        Method first = aClass.getMethod(
+                "secend", //方法名
+                String.class //返回值类型
+        );
+        Object invoke = first.invoke(
+                o, //类对象
+                "secend.abc" //执行方法传递的参数
+        );
         System.out.println(invoke);
 
-        ModelAndView modelAndView = new ModelAndView();
-        Model model = new Model() {
-            @Override
-            public Model addAttribute(String s, Object o) {
-                return null;
-            }
 
-            @Override
-            public Model addAttribute(Object o) {
-                return null;
-            }
-
-            @Override
-            public Model addAllAttributes(Collection<?> collection) {
-                return null;
-            }
-
-            @Override
-            public Model addAllAttributes(Map<String, ?> map) {
-                return null;
-            }
-
-            @Override
-            public Model mergeAttributes(Map<String, ?> map) {
-                return null;
-            }
-
-            @Override
-            public boolean containsAttribute(String s) {
-                return false;
-            }
-
-            @Override
-            public Map<String, Object> asMap() {
-                return null;
-            }
-        };
-        modelAndView = (ModelAndView) model;
 
 
 
