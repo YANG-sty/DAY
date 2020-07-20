@@ -1,4 +1,4 @@
-package com.sys;
+package com.sys.testMy;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -58,11 +58,6 @@ public class StringSplit {
                 "secend.abc" //执行方法传递的参数
         );
         System.out.println(invoke);
-
-
-
-
-
 
 
     }
