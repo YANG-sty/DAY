@@ -1,8 +1,13 @@
 package com.sys.testMy;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import lombok.Data;
+import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -98,8 +103,40 @@ public class InstanceOf {
         JOSN(project3);
 
 
+    }
 
 
+    @Test
+    public void test1() {
+        List<Student> studentList = new ArrayList<>();
+
+        Student student1 = new Student();
+        student1.setId(UUID.randomUUID().toString());
+        student1.setName("xiaoming");
+        student1.setAge(10);
+        Student student2 = new Student();
+        student2.setId(UUID.randomUUID().toString());
+        student2.setName("honghong");
+        student2.setAge(18);
+
+        studentList.add(student1);
+        studentList.add(student2);
+
+        //这两中共将 list 集合转为字符串，没有任何区别
+        String s = JSONObject.toJSONString(studentList);
+        System.out.println(s);
+        String s1 = JSONArray.toJSONString(studentList);
+        System.out.println(s1);
+
+        List<Student> studentList0 = JSONArray.parseArray(s, Student.class);
+        for (Student student : studentList0) {
+            System.out.println(student.toString());
+        }
+
+        List<Student> studentList1 = JSONArray.parseArray(s1, Student.class);
+        for (Student student : studentList1) {
+            System.out.println(student.toString());
+        }
     }
 
 }
