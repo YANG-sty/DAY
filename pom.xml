@@ -11,7 +11,7 @@
     <modules>
         <module>day-common</module>
         <module>day-dao</module>
-        <module>day-domain</module>
+        <module>day-domain-niuke</module>
         <module>day-export</module>
         <module>day-service</module>
         <module>day-web</module>
@@ -22,6 +22,7 @@
     <properties>
         <project.release.version>1.0-SNAPSHOT</project.release.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <scala.version>2.13.4</scala.version>
     </properties>
 
     <dependencyManagement>
@@ -62,7 +63,7 @@
             </dependency>
             <dependency>
                 <groupId>com.sys.gree</groupId>
-                <artifactId>day-domain</artifactId>
+                <artifactId>day-domain-niuke</artifactId>
                 <version>${project.release.version}</version>
             </dependency>
             <dependency>
@@ -161,6 +162,60 @@
     <!-- 引入maven编译插件 系统版本构建 -->
     <build>
         <plugins>
+
+            <plugin>
+                <groupId>org.scala-tools</groupId>
+                <artifactId>maven-scala-plugin</artifactId>
+                <version>2.12.2</version>
+                <executions>
+                    <execution>
+                        <id>scala-compile-first</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>scala-test-compile</id>
+                        <phase>process-test-resources</phase>
+                        <goals>
+                            <goal>testCompile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+
+            <!-- sacala -->
+            <!--<plugin>
+                <groupId>net.alchim31.maven</groupId>
+                <artifactId>scala-maven-plugin</artifactId>
+                <version>3.2.2</version>
+                <executions>
+                    <execution>
+                        <id>compile-scala</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>test-compile-scala</id>
+                        <phase>test-compile</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                            <goal>testCompile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <scalaVersion>2.13.4</scalaVersion>
+                </configuration>
+            </plugin>-->
+
+
+            <!-- java -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>

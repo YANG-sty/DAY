@@ -15,8 +15,70 @@
     <dependencies>
         <dependency>
             <groupId>com.sys.gree</groupId>
-            <artifactId>day-domain</artifactId>
+            <artifactId>day-domain-niuke</artifactId>
         </dependency>
+
+        <!-- 添加scala的依赖 -->
+        <!-- https://mvnrepository.com/artifact/org.scala-lang/scala-library -->
+        <!--<dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-library</artifactId>
+            <version>2.13.4</version>
+        </dependency>-->
+        <!-- https://mvnrepository.com/artifact/org.scala-lang/scala-reflect -->
+        <!--<dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-reflect</artifactId>
+            <version>2.13.4</version>
+        </dependency>-->
+        <!--<dependency>
+            <groupId>im.actor</groupId>
+            <artifactId>actor-commons_2.11</artifactId>
+            <version>0.0.20</version>
+        </dependency>-->
+
+        <!-- https://mvnrepository.com/artifact/im.actor.server/actor-core -->
+        <!--<dependency>
+            <groupId>im.actor.server</groupId>
+            <artifactId>actor-core</artifactId>
+            <version>3.0.0</version>
+        </dependency>-->
+
+        <!-- 添加akka的actor依赖 -->
+        <!-- https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor -->
+        <dependency>
+            <groupId>com.typesafe.akka</groupId>
+            <artifactId>akka-actor_2.11</artifactId>
+            <version>2.5.32</version>
+        </dependency>
+
+        <!-- 多进程之间的Actor通信 -->
+        <!-- https://mvnrepository.com/artifact/com.typesafe.akka/akka-remote -->
+        <dependency>
+            <groupId>com.typesafe.akka</groupId>
+            <artifactId>akka-remote_2.11</artifactId>
+            <version>2.5.32</version>
+        </dependency>
+
+
+        <!-- scala -->
+        <!-- https://mvnrepository.com/artifact/org.scala-lang/scala-library -->
+        <!--<dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-library</artifactId>
+            <version>2.13.4</version>
+        </dependency>-->
+
+
+        <!-- spark -->
+        <!-- https://mvnrepository.com/artifact/org.apache.spark/spark-core -->
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-core_2.12</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+
+
     </dependencies>
 
 
