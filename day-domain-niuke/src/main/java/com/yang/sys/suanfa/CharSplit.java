@@ -22,6 +22,19 @@ public class CharSplit {
             }
 
         }
+
+
+    }
+
+    @Test
+    public void tests2() {
+        String s = "[]{}()";
+        int length = s.length();
+        for (int i = 0; i < s.length(); i++) {
+            String a = s.substring(i, i + 1);
+            System.out.println(a);
+
+        }
     }
 
 }

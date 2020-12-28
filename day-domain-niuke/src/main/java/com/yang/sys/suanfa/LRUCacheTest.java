@@ -1,6 +1,9 @@
 package com.yang.sys.suanfa;
 
 
+import java.util.ArrayDeque;
+import java.util.Queue;
+
 /**
  * @author yangLongFei 2020-11-27-12:40
  */
@@ -75,7 +78,7 @@ public class LRUCacheTest {
             int index = hashKey(key);
             //获得 第 index 个 node 结点
             Node node = hashTable[index];
-            //结点不为空， 结点的 key 和 kye 不相等，说明是 两个key 的余数相等
+            //结点不为空， 结点的 key 和 key 不相等，说明是 两个key 的余数相等
             while (node != null && node.key != key) {
                 node = node.hashTableLinkNode;
             }
@@ -109,27 +112,33 @@ public class LRUCacheTest {
 
         private void expireNode() {
             Node node = head;
+            // head 节点为空，不用进行删除
             if (node == null) return;
+            //头节点不为空，则删除链表头节点
             head = node.nextNode;
             head.preNode = null;
             node.nextNode = null;
 
             int index = hashKey(node.key);
+            //获node节点在 hashTable 中的位置
             Node curr = hashTable[index];
-            Node last = null;
+            Node pre = null;
+            // 当前节点 不为空， 当前节点不等于 node 节点，则进行循环
             while (curr != null && curr != node) {
-                last = curr;
+                pre = curr;
                 curr = curr.hashTableLinkNode;
             }
-
-            if (last == null) {
+            // last 节点为空，
+            if (pre == null) {
                 hashTable[index] = node.hashTableLinkNode;
             } else {
-                last.hashTableLinkNode = node.hashTableLinkNode;
+                pre.hashTableLinkNode = node.hashTableLinkNode;
             }
 
             node.hashTableLinkNode = null;
             nodeCount--;
+
+
 
         }
 
@@ -184,5 +193,9 @@ public class LRUCacheTest {
             this.value = value;
         }
     }
+
+
+
+
 
 }
