@@ -4,6 +4,7 @@ import lombok.Synchronized;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.stream.IntStream;
@@ -21,6 +22,21 @@ public class StringFormat {
     @Test
     public void test1() {
         String format = format("status %s reading %s", "2", "a", "b", "c");
+        System.out.println(format);
+
+    }
+
+    /**
+     * %n 换行符
+     *
+     *  <	格式化前一个转换符所描述的参数
+     */
+    @Test
+    public void test1_1() {
+        System.out.printf("50元的书打8.5折扣是：%f 元%n", 50*0.85);
+        Date date = new Date();
+        //2021-01-18 10:03:44
+        String format = format("%tF %<tT", date);
         System.out.println(format);
 
     }

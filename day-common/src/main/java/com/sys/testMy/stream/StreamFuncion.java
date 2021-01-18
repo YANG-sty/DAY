@@ -1,4 +1,4 @@
-package com.sys.testMy;
+package com.sys.testMy.stream;
 
 import org.junit.Test;
 
