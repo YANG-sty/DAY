@@ -89,4 +89,15 @@ public class StringFormat {
 
 
 
+    @Test
+    public void test4() {
+        String s = "aaaaaaa".replaceAll("aa", "bb");
+        System.out.println(s);
+
+        String ss = "aaaaaa".replaceAll("\\u00A0", "");
+        System.out.println(ss);
+    }
+
+
+
 }

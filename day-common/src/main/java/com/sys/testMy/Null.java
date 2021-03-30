@@ -2,11 +2,12 @@ package com.sys.testMy;
 
 
 import lombok.NonNull;
+import org.junit.Test;
 import org.springframework.lang.Nullable;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
+//import javax.validation.constraints.NotBlank;
+//import javax.validation.constraints.NotEmpty;
+//import javax.validation.constraints.NotNull;
 
 /**
  * Create by yang_zzu on 2020/5/27 on 13:56
@@ -37,6 +38,14 @@ public class Null {
         nonull22(a);
         nonull(a);
 
+    }
+
+
+
+    @Test
+    public void test2() {
+        Boolean a = true;
+        System.out.println(Integer.valueOf(String.valueOf(a)));
     }
 
 

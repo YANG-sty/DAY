@@ -59,6 +59,7 @@ public class SteramMyLambda {
         for (int i = 0; i < 10; i++) {
             stringList.add(null);
         }
+        //stream对象转map集合
         Map<Boolean, List<String>> map = stringList.stream().collect(Collectors.groupingBy(s -> CommonUtils.isNotEmpty(s)));
         List<String> stringList1 = map.get(Boolean.FALSE);
         System.out.println(stringList1.size());
@@ -95,10 +96,10 @@ public class SteramMyLambda {
 
 //{"啤酒":{"other":[{"category":"啤酒","id":4,"name":"青岛啤酒","num":3,"price":10},{"category":"啤酒","id":5,"name":"百威啤酒","num":10,"price":15}]},"零食":{"other":[{"category":"零食","id":3,"name":"月饼","num":3,"price":30}],"3":[{"category":"零食","id":1,"name":"面包","num":1,"price":15.5},{"category":"零食","id":2,"name":"饼干","num":2,"price":20}]}}
 
+        //stream对象转map集合
 //        Map<String, Set<String>> prodMap = prodList.stream().collect(Collectors.groupingBy(Product::getCategory,
 //                Collectors.mapping(Product::getName, Collectors.toSet())));
-
-//{"啤酒":["青岛啤酒","百威啤酒"],"零食":["面包","饼干","月饼"]}
+        //{"啤酒":["青岛啤酒","百威啤酒"],"零食":["面包","饼干","月饼"]}
 
 
 
