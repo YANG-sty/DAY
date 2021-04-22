@@ -24,6 +24,9 @@ public class StreamMap {
         private Double value;
     }
 
+    public static void main(String[] args) {
+        System.out.println("123");
+    }
 
     @Test
     public void test1() {
@@ -39,6 +42,14 @@ public class StreamMap {
         proeducts.add(pingguo2);
         proeducts.add(pingguo3);
         proeducts.add(pingguo4);
+
+        /**
+         * List<String> people
+         *          = people.stream().collect(collectingAndThen(toList(), Collections::unmodifiableList));
+         */
+        List<Proeduct> collect3 = proeducts.stream().collect(Collectors.collectingAndThen(Collectors.toList(), pro -> {
+            return pro;
+        }));
 
         //stream对象转map
         Map<Double, Proeduct> collect = proeducts.stream().collect(Collectors.toMap(Proeduct::getValue, Function.identity(), (v1, v2) -> v1));
