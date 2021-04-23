@@ -4,6 +4,7 @@ import lombok.Data;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -109,6 +110,34 @@ public class For {
         a = 3;
         System.out.println(a);
         System.out.println(b);
+    }
+
+    @Test
+    public void test2() {
+        List<String> stringList = new ArrayList();
+        stringList.add("a1");
+        stringList.add("b2");
+        stringList.add("c3");
+        stringList.add("d4");
+        List<Integer> integerList = new ArrayList<>();
+        integerList.add(1);
+        integerList.add(2);
+        integerList.add(3);
+        integerList.add(4);
+        integerList.add(5);
+
+        Iterator iterator;
+        for (String s : stringList) {
+            System.out.println(s);
+            //重新进行初始化操作
+            iterator = integerList.iterator();
+            while (iterator.hasNext()) {
+                System.out.println(s + " : " + iterator.next());
+                if (s.contains(iterator.toString())) {
+                    iterator.remove();
+                }
+            }
+        }
     }
 
 

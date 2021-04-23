@@ -1,5 +1,6 @@
 package com.sys.teststream;
 
+import com.sys.DesignPatterns.FactoryPatterns.Product;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -31,7 +32,7 @@ public class StreamMap {
     @Test
     public void test1() {
         Proeduct pingguo = new Proeduct("pingguo", "0", 100.00);
-        Proeduct pingguo1 = new Proeduct("pingguo1", "1", 101.00);
+        Proeduct pingguo1 = new Proeduct("pingguo", "1", 101.00);
         Proeduct pingguo2 = new Proeduct("pingguo2", "2", 102.00);
         Proeduct pingguo3 = new Proeduct("pingguo3", "3", 103.00);
         Proeduct pingguo4 = new Proeduct("pingguo4", "4", 104.00);
@@ -50,6 +51,23 @@ public class StreamMap {
         List<Proeduct> collect3 = proeducts.stream().collect(Collectors.collectingAndThen(Collectors.toList(), pro -> {
             return pro;
         }));
+
+        Map<String, List<Proeduct>> collect4 = proeducts.stream().collect(Collectors.groupingBy(
+                Proeduct::getName,
+                Collectors.collectingAndThen(Collectors.toList(), pro -> {
+                    return pro;
+                })));
+
+        Map<String, List<Proeduct>> collect6 = proeducts.stream().collect(Collectors.groupingBy(Proeduct::getName));
+
+        Map<String, List<Proeduct>> collect5 = proeducts.stream().collect(Collectors.groupingBy(Proeduct::getName, Collectors.mapping(user ->{
+            if (user.getId().equals("0")) {
+                return user;
+            } else {
+                return null;
+            }
+        }, Collectors.toList())));
+
 
         //stream对象转map
         Map<Double, Proeduct> collect = proeducts.stream().collect(Collectors.toMap(Proeduct::getValue, Function.identity(), (v1, v2) -> v1));
