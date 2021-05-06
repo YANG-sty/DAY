@@ -15,7 +15,7 @@ public class DeserializationTest {
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         //com.sys.DesignPatterns.Singleton.Lazy.LazySingleton@7ca48474
-        /*LazySingleton lazySingleton = LazySingleton.getLazySingleton();
+        LazySingleton lazySingleton = LazySingleton.getLazySingleton();
 
         System.out.println(lazySingleton);
         ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream("lazySingletonSerialization"));
@@ -24,7 +24,7 @@ public class DeserializationTest {
 
         System.out.println(lazySingleton1);
 
-        System.out.println(lazySingleton == lazySingleton1);*/
+        System.out.println(lazySingleton == lazySingleton1);
 
         /**
          * 验证，
@@ -32,13 +32,12 @@ public class DeserializationTest {
          *
          * com.sys.DesignPatterns.Singleton.Serialization.SingletonSerialization@66a3ffec
          * com.sys.DesignPatterns.Singleton.Serialization.SingletonSerialization@5622fdf
-         * 在实例对象带有属性的时候，
-         * 进行序列化、反序列化 的时候 实例是不一样的
          *
-         * 因为通过构造函数进行序列化的时候，构造出来的是一个空的实例
-         * 通过从文件中反序列化构造出来的是一个 java 对象，里面包含之前序列化的时候存储的数据，
+         * 序列化，反序列化 这里在进行测试的时候，是存在不同的测试方法里面，
+         * 在进行执行的时候，是开了两个 java 进程，不同的进程中的内存空间肯定是不同的。
          *
-         * 目前还不知道是具体是什么原因造成的？？？？？？？？？
+         * 将 序列化，反序列化 放到同一个 main 方法里面，进行执行，这个时候，对象是一样的。
+         *
          */
 
         Consumer consumer = System.out::println;

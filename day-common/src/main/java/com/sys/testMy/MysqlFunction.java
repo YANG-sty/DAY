@@ -11,6 +11,17 @@ import java.util.Arrays;
  * @author yangLongFei 2021-04-09-15:06
  */
 public class MysqlFunction {
+    public static void main(String[] args) throws UnknownHostException {
+        InetAddress address = InetAddress.getLocalHost();
+        System.out.println(inet_aton((Inet4Address) address));
+        System.out.println(inet_ntoa(Long.valueOf("3232246785")));
+
+        System.out.println(inet_aton("192.168.2.12"));
+        System.out.println(inet_ntoa(Long.valueOf("3232236044")));
+
+        System.out.println(inet_aton("255.255.255.255"));
+        System.out.println(inet_ntoa(Long.valueOf("4294967295")));
+    }
     @Test
     public void test() throws UnknownHostException {
 

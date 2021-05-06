@@ -1,5 +1,8 @@
 package com.sys.DesignPatterns.Singleton.Serialization;
 
+import com.sys.DesignPatterns.Singleton.Lazy.LazySingleton;
+
+import java.io.ObjectStreamException;
 import java.io.Serializable;
 
 /**
@@ -53,4 +56,18 @@ public class SingletonSerialization implements Serializable {
     private SingletonSerialization() {
 
     }
+
+    /**
+     * 序列化 和 反序列化
+     * 保持为同一个对象
+     *
+     * 反序列化
+     * 从流中读取实例时需要指定替换的类应使用带有精确签名的特殊方法来实现。
+     * 指定返回的数据，不实现该方法则会从 文件流 里面获取数据，
+     * 实现该方法，获取到该方法返回的数据。
+     */
+    Object readResolve() throws ObjectStreamException {
+        return SingletonSerialization.singletonSerialization;
+    }
+
 }
