@@ -10,12 +10,12 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>day-dao</artifactId>
+    <artifactId>day-suanfa</artifactId>
 
     <dependencies>
         <dependency>
             <groupId>com.sys.gree</groupId>
-            <artifactId>day-domain-niuke</artifactId>
+            <artifactId>day-niuke</artifactId>
         </dependency>
     </dependencies>
 

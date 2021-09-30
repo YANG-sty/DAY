@@ -11,6 +11,9 @@ import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import static java.util.stream.Collectors.groupingBy;
+import static java.util.stream.Collectors.partitioningBy;
+
 /**
  * @author yangLongFei 2021-01-14-16:55
  */
@@ -48,28 +51,43 @@ public class StreamMap {
          * List<String> people
          *          = people.stream().collect(collectingAndThen(toList(), Collections::unmodifiableList));
          */
+
         List<Proeduct> collect3 = proeducts.stream().collect(Collectors.collectingAndThen(Collectors.toList(), pro -> {
             return pro;
         }));
 
-        Map<String, List<Proeduct>> collect4 = proeducts.stream().collect(Collectors.groupingBy(
+        Map<String, List<Proeduct>> collect4 = proeducts.stream().collect(groupingBy(
                 Proeduct::getName,
                 Collectors.collectingAndThen(Collectors.toList(), pro -> {
                     return pro;
                 })));
 
-        Map<String, List<Proeduct>> collect6 = proeducts.stream().collect(Collectors.groupingBy(Proeduct::getName));
+        Map<String, List<Proeduct>> collect6 = proeducts.stream().collect(groupingBy(
+                Proeduct::getName
+                ));
 
-        Map<String, List<Proeduct>> collect5 = proeducts.stream().collect(Collectors.groupingBy(Proeduct::getName, Collectors.mapping(user ->{
-            if (user.getId().equals("0")) {
+        Map<String, Map<Object, List<Proeduct>>> result = proeducts.stream().collect(groupingBy(
+                Proeduct::getName,
+                groupingBy(proeduct -> {
+                    if(proeduct.getValue() <= 101) return "xiao";
+                    else if (proeduct.getValue() <= 103) return "zhong";
+                    else return "da";
+                })));
+
+
+        Map<String, List<Proeduct>> collect5 = proeducts.stream().collect(groupingBy(Proeduct::getName, Collectors.mapping(user ->{
+            if (!user.getId().equals("0")) {
                 return user;
             } else {
                 return null;
             }
         }, Collectors.toList())));
 
+        // stream对象根据条件分组，分为两组
+        Map<Boolean, List<Proeduct>> collect7 = proeducts.stream().collect(partitioningBy(proeduct -> proeduct.getValue() <= 102));
 
-        //stream对象转map
+
+        //stream对象转map，如果两个key值相同则返回第一个
         Map<Double, Proeduct> collect = proeducts.stream().collect(Collectors.toMap(Proeduct::getValue, Function.identity(), (v1, v2) -> v1));
         collect.forEach((aDouble, proeduct) -> System.out.println(aDouble.toString() + "  " + proeduct.toString()));
 
@@ -108,7 +126,7 @@ public class StreamMap {
 
         //分组获得组内最小值
         Map<String, Optional<Proeduct>> collect = proeducts.stream().collect(
-                Collectors.groupingBy(
+                groupingBy(
                         Proeduct::getName,
                         Collectors.minBy(Comparator.comparing(Proeduct::getValue))
                 ));

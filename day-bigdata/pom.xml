@@ -10,12 +10,12 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>day-export</artifactId>
+    <artifactId>day-bigdata</artifactId>
 
     <dependencies>
         <dependency>
             <groupId>com.sys.gree</groupId>
-            <artifactId>day-domain-niuke</artifactId>
+            <artifactId>day-niuke</artifactId>
         </dependency>
 
         <!-- 添加scala的依赖 -->

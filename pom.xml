@@ -9,10 +9,10 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
+        <module>day-bigdata</module>
         <module>day-common</module>
-        <module>day-dao</module>
-        <module>day-domain-niuke</module>
-        <module>day-export</module>
+        <module>day-suanfa</module>
+        <module>day-niuke</module>
         <module>day-service</module>
         <module>day-web</module>
     </modules>
@@ -59,27 +59,27 @@
             <!-- 本项目模块 -->
             <dependency>
                 <groupId>com.sys.gree</groupId>
+                <artifactId>day-bigdata</artifactId>
+                <version>${project.release.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.sys.gree</groupId>
                 <artifactId>day-common</artifactId>
                 <version>${project.release.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.sys.gree</groupId>
-                <artifactId>day-dao</artifactId>
-                <version>${project.release.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.sys.gree</groupId>
-                <artifactId>day-domain-niuke</artifactId>
-                <version>${project.release.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.sys.gree</groupId>
-                <artifactId>day-export</artifactId>
+                <artifactId>day-niuke</artifactId>
                 <version>${project.release.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.sys.gree</groupId>
                 <artifactId>day-service</artifactId>
+                <version>${project.release.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.sys.gree</groupId>
+                <artifactId>day-suanfa</artifactId>
                 <version>${project.release.version}</version>
             </dependency>
             <dependency>

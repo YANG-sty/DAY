@@ -13,13 +13,10 @@
     <artifactId>day-service</artifactId>
 
     <dependencies>
+
         <dependency>
             <groupId>com.sys.gree</groupId>
-            <artifactId>day-dao</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.sys.gree</groupId>
-            <artifactId>day-export</artifactId>
+            <artifactId>day-common</artifactId>
         </dependency>
 
         <!-- service 基本上在开发过程中还需要引入其他的jar包 -->
