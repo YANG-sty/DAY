@@ -10,6 +10,15 @@ import java.util.Stack;
 public class StackTest {
 
     @Test
+    public void test1() {
+        System.out.println(1);
+    }
+
+    public static void main(String[] args) {
+        System.out.println(1);
+    }
+
+    @Test
     public void test() {
         Stack stack = new Stack();
         stack.push(65);

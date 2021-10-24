@@ -15,7 +15,7 @@
     <dependencies>
         <dependency>
             <groupId>com.sys.gree</groupId>
-            <artifactId>day-niuke</artifactId>
+            <artifactId>day-common</artifactId>
         </dependency>
     </dependencies>
 

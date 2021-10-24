@@ -16,11 +16,11 @@ public class SordArrayTest {
     public int[] maoPao(int[] array, int n) {
         for (int i = n - 1; i > 0; i--) {
             int falg = 0;
-            for (int j = 0; j < i; j++) {
-                if (array[j] > array[j + 1]) {
-                    int temp = array[j + 1];
-                    array[j + 1] = array[j];
-                    array[j] = temp;
+            for (int x = 0; x < i; x++) {
+                if (array[x] > array[x + 1]) {
+                    int temp = array[x + 1];
+                    array[x + 1] = array[x];
+                    array[x] = temp;
                     falg = 1;
                 }
             }
